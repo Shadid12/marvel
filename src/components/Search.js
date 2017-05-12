@@ -9,7 +9,9 @@ export class Search extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {character: ''};
+		this.state = {
+			character: '',
+		};
 
 		this.handleClick = this.handleClick.bind(this);
     	this.handleCharacter = this.handleCharacter.bind(this);
@@ -27,10 +29,13 @@ export class Search extends Component {
 		let hasH = md5(`${ts}${privateKey}${publicKey}`);
 		let url = `https://gateway.marvel.com:443/v1/public/characters?name=${this.state.character}&apikey=${publicKey}&hash=${hasH}&ts=${ts}`
 
-		axios.get(url).then(function(res){
-			console.log(res);
+		axios.get(url).then( (res) => {
+			this.props.onSubmit(res.data.data.results[0]);
+			// this.setState({ cards: res.data.data.results[0] })
+			// console.log(this.state.cards);
 		});
 		this.setState({ character: '' });
+		
 	}
 
 	render(){
