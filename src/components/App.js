@@ -1,5 +1,8 @@
 import { Component } from 'react'
 import { Nav } from './Nav'
+import { Search } from './Search'
+
+
 
 export class App extends Component {
 
@@ -7,6 +10,8 @@ export class App extends Component {
 		return(
 			<div>
 				<Nav />
+				<br />
+				<Search />
 			</div>
 		)
 	}
