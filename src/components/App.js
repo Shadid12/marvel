@@ -12,9 +12,9 @@ export class App extends Component {
 
 	addCard = (cardInfo) => {
 		this.setState((prevState, props) => {
+		  console.log(cardInfo);
 		  return {cards: cardInfo };
 		});
-		console.log(this.state.cards);
 	}
 
 	render(){

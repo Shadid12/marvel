@@ -30,7 +30,7 @@ export class Search extends Component {
 		let url = `https://gateway.marvel.com:443/v1/public/characters?name=${this.state.character}&apikey=${publicKey}&hash=${hasH}&ts=${ts}`
 
 		axios.get(url).then( (res) => {
-			this.props.onSubmit(res.data.data.results[0]);
+			this.props.onSubmit(res.data.data.results);
 			// this.setState({ cards: res.data.data.results[0] })
 			// console.log(this.state.cards);
 		});
@@ -43,7 +43,7 @@ export class Search extends Component {
 			<div className="container">
 				<div className="center">
 	  				<input type="text" name="search" 
-	  									placeholder="Search.." 
+	  									placeholder="Search.."
 	  									value={this.state.character}
 	  									onChange={this.handleCharacter} />
 	  				<br />
